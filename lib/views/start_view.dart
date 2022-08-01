@@ -1,3 +1,4 @@
+import 'package:anical/constants/colors.dart';
 import 'package:anical/views/mikrogramm_view.dart';
 import 'package:anical/views/milligramm_view.dart';
 import 'package:flutter/material.dart';
@@ -21,23 +22,29 @@ class _HomePage extends State<HomePage> {
             height: 80,
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 30, top: 5),
+            padding: EdgeInsets.only(
+              left: 30,
+              top: 5,
+            ),
             child: Text(
               'AniCal',
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 66, 70, 86),
+                color: textPrimaryColor,
               ),
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 33, top: 10),
+            padding: EdgeInsets.only(
+              left: 33,
+              top: 10,
+            ),
             child: Text(
               'Anästhesie Perfusorenrechner',
               style: TextStyle(
                 fontSize: 22,
-                color: Color.fromARGB(255, 66, 70, 86),
+                color: textPrimaryColor,
               ),
             ),
           ),
@@ -54,16 +61,18 @@ class _HomePage extends State<HomePage> {
                     ));
               },
               style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 0, 143, 248),
+                primary: primaryButtonColor,
                 minimumSize: const Size(120, 120),
                 shape: const CircleBorder(),
                 elevation: 2.5,
-                shadowColor: const Color.fromARGB(255, 66, 70, 86),
+                shadowColor: textPrimaryColor,
               ),
               child: const Text(
                 'mg',
                 style: TextStyle(
-                    color: Color.fromARGB(255, 255, 255, 255), fontSize: 25),
+                  color: textWhiteColor,
+                  fontSize: 25,
+                ),
               ),
             ),
           ),
@@ -79,16 +88,17 @@ class _HomePage extends State<HomePage> {
                       ));
                 },
                 style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(
-                        255, 0, 143, 248), // 255, 56, 101, 166
+                    primary: primaryButtonColor, // 255, 56, 101, 166
                     minimumSize: const Size(120, 120),
                     shape: const CircleBorder(),
                     elevation: 2.5,
-                    shadowColor: const Color.fromARGB(255, 66, 70, 86)),
+                    shadowColor: textPrimaryColor),
                 child: const Text(
                   'µg',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255), fontSize: 25),
+                    color: textWhiteColor,
+                    fontSize: 25,
+                  ),
                 ),
               ),
             ),

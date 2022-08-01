@@ -1,3 +1,4 @@
+import 'package:anical/constants/colors.dart';
 import 'package:anical/views/result_view.dart';
 import 'package:anical/views/start_view.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,7 @@ class _MilligrammViewState extends State<MilligrammView> {
             icon: const Icon(
               Icons.arrow_back,
               size: 30,
-              color: Color.fromRGBO(66, 70, 86, 1),
+              color: textPrimaryColor,
             ),
           ),
           backgroundColor: Colors.transparent,
@@ -76,13 +77,16 @@ class _MilligrammViewState extends State<MilligrammView> {
               height: 100,
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 30, top: 5),
+              padding: EdgeInsets.only(
+                left: 30,
+                top: 5,
+              ),
               child: Text(
                 'AniCal',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 66, 70, 86),
+                  color: textPrimaryColor,
                 ),
               ),
             ),
@@ -95,7 +99,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                 'Berechne die Laufzeit in\nmg/Kg/h, oder ml/h.',
                 style: TextStyle(
                   fontSize: 22,
-                  color: Color.fromARGB(255, 66, 70, 86),
+                  color: textPrimaryColor,
                 ),
               ),
             ),
@@ -111,8 +115,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                     backgroundColor: colorStateButton1,
                     shape: shape,
                     minimumSize: const Size(160, 40),
-                    side: const BorderSide(
-                        width: 1.5, color: Color.fromRGBO(66, 70, 86, 1)),
+                    side: const BorderSide(width: 1.5, color: textPrimaryColor),
                   ),
                   onPressed: () {
                     setState(
