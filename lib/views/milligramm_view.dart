@@ -36,8 +36,8 @@ class _MilligrammViewState extends State<MilligrammView> {
   double milligramPerMilliLitersAsInt = 0;
   double milliLitersPerHourAsInt = 0;
   late double result;
-  final String valueNameOne = 'mg/Kg/h';
-  final String valueNameTwo = 'mg/Kg/min';
+  final String valueNameOne = 'mg/kg/h';
+  final String valueNameTwo = 'mg/kg/min';
 
   @override
   void initState() {
@@ -96,7 +96,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                 top: 10,
               ),
               child: Text(
-                'Berechne die Laufzeit in\nmg/Kg/h, oder ml/h.',
+                'Berechne die Laufzeit in\nmg/kg/h, oder ml/h.',
                 style: TextStyle(
                   fontSize: 22,
                   color: textPrimaryColor,
@@ -129,7 +129,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                     );
                   },
                   child: const Text(
-                    'mg/Kg/h',
+                    'mg/kg/h',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -177,7 +177,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
                 decoration: InputDecoration(
-                  labelText: 'Kg',
+                  labelText: 'kg',
                   errorText: _validate ? 'Bitte gebe einen Wert ein' : null,
                 ),
               ),
@@ -237,7 +237,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.done,
                   decoration: const InputDecoration(
-                    labelText: 'mg/Kg/h',
+                    labelText: 'mg/kg/h',
                   ),
                 ),
               ),

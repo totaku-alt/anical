@@ -34,8 +34,8 @@ class _MikrogrammViewState extends State<MikrogrammView> {
   double milliLitersPerHourAsInt = 0;
 
   late double result;
-  final String valueNameOne = 'µg/Kg/h';
-  final String valueNameTwo = 'µg/Kg/min';
+  final String valueNameOne = 'µg/kg/h';
+  final String valueNameTwo = 'µg/kg/min';
 
   @override
   void initState() {
@@ -91,7 +91,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                 top: 10,
               ),
               child: Text(
-                'Berechne die Laufzeit in\nµg/Kg/h, oder ml/h.',
+                'Berechne die Laufzeit in\nµg/kg/h, oder ml/h.',
                 style: TextStyle(
                   fontSize: 22,
                   color: Color.fromARGB(255, 66, 70, 86),
@@ -125,7 +125,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                     );
                   },
                   child: const Text(
-                    'µg/Kg/h',
+                    'µg/kg/h',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -172,8 +172,8 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                     }),
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  labelText: 'Kg',
+                decoration: const InputDecoration(
+                  labelText: 'kg',
                 ),
               ),
             ),
@@ -232,7 +232,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.done,
                   decoration: const InputDecoration(
-                    labelText: 'µg/Kg/h',
+                    labelText: 'µg/kg/h',
                   ),
                 ),
               ),

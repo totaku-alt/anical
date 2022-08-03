@@ -85,26 +85,26 @@ class _ResultViewState extends State<ResultView> {
                           '${widget.result.toStringAsFixed(2)}'),
                     ),
                     Text(
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Color.fromRGBO(66, 70, 86, 1),
                         ),
-                        '${widget.valueNameOne}'),
+                        widget.valueNameOne),
                     const SizedBox(
                       height: 24,
                     ),
                     Text(
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 56,
                           color: Color.fromRGBO(66, 70, 86, 1),
                         ),
                         '${(widget.result / 60).toStringAsFixed(3)}'),
                     Text(
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Color.fromRGBO(66, 70, 86, 1),
                         ),
-                        '${widget.valueNameTwo}'),
+                        widget.valueNameTwo),
                   ],
                 ),
               ),
@@ -112,9 +112,9 @@ class _ResultViewState extends State<ResultView> {
           ),
           Expanded(
             child: Align(
-              alignment: FractionalOffset(0.5, 0.93),
+              alignment: const FractionalOffset(0.5, 0.93),
               child: ElevatedButton.icon(
-                icon: Icon(
+                icon: const Icon(
                   Icons.replay,
                   color: Colors.white,
                 ),
@@ -125,8 +125,8 @@ class _ResultViewState extends State<ResultView> {
                   onPrimary: const Color.fromRGBO(255, 255, 255, 1),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage()));
                 },
                 label: Text(
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
