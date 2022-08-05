@@ -233,6 +233,7 @@ class _MilligrammViewState extends State<MilligrammView> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          elevation: 0.0,
           child: Padding(
             padding: const EdgeInsets.only(
               left: 8,
@@ -241,6 +242,7 @@ class _MilligrammViewState extends State<MilligrammView> {
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
+                splashFactory: NoSplash.splashFactory,
                 minimumSize: const Size(365, 52),
                 shape: shape,
                 primary: primaryButtonColor,

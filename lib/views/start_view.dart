@@ -61,6 +61,7 @@ class _HomePage extends State<HomePage> {
                     ));
               },
               style: ElevatedButton.styleFrom(
+                splashFactory: NoSplash.splashFactory,
                 primary: primaryButtonColor,
                 minimumSize: const Size(120, 120),
                 shape: const CircleBorder(),
@@ -88,6 +89,7 @@ class _HomePage extends State<HomePage> {
                       ));
                 },
                 style: ElevatedButton.styleFrom(
+                    splashFactory: NoSplash.splashFactory,
                     primary: primaryButtonColor, // 255, 56, 101, 166
                     minimumSize: const Size(120, 120),
                     shape: const CircleBorder(),
