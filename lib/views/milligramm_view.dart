@@ -49,7 +49,7 @@ class _MilligrammViewState extends State<MilligrammView> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           leading: IconButton(
@@ -69,207 +69,199 @@ class _MilligrammViewState extends State<MilligrammView> {
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 100,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                left: 30,
-                top: 5,
+        body: SingleChildScrollView(
+          reverse: true,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 105,
               ),
-              child: Text(
-                'AniCal',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: textPrimaryColor,
+              const Padding(
+                padding: EdgeInsets.only(left: 30),
+                child: Text(
+                  'AniCal',
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: textPrimaryColor),
                 ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(
-                left: 31,
-                top: 10,
-              ),
-              child: Text(
-                'Berechne die Laufzeit in\nmg/kg/h, oder ml/h.',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: textPrimaryColor,
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 31,
+                  top: 10,
+                ),
+                child: Text(
+                  'Berechne die Laufzeit in\nmg/kg/h, oder ml/h.',
+                  style: TextStyle(fontSize: 22, color: textPrimaryColor),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    primary: colorStateButton2,
-                    backgroundColor: colorStateButton1,
-                    shape: shape,
-                    minimumSize: const Size(160, 40),
-                    side: const BorderSide(width: 1.5, color: textPrimaryColor),
-                  ),
-                  onPressed: () {
-                    setState(
-                      () {
-                        colorStateButton2 =
-                            const Color.fromRGBO(255, 255, 255, 1);
-                        colorStateButton1 = const Color.fromRGBO(66, 70, 86, 1);
-                        isMgKgHVisible = true;
-                        isMlHVisible = false;
-                      },
-                    );
-                  },
-                  child: const Text(
-                    'mg/kg/h',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-                OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    primary: colorStateButton1,
-                    backgroundColor: colorStateButton2,
-                    shape: shape,
-                    minimumSize: const Size(160, 40),
-                    side: const BorderSide(
-                      width: 1.5,
-                      color: Color.fromRGBO(66, 70, 86, 1),
+              const SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      primary: colorStateButton2,
+                      backgroundColor: colorStateButton1,
+                      shape: shape,
+                      minimumSize: const Size(160, 40),
+                      side:
+                          const BorderSide(width: 1.5, color: textPrimaryColor),
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          colorStateButton2 =
+                              const Color.fromRGBO(255, 255, 255, 1);
+                          colorStateButton1 =
+                              const Color.fromRGBO(66, 70, 86, 1);
+                          isMgKgHVisible = true;
+                          isMlHVisible = false;
+                        },
+                      );
+                    },
+                    child: const Text(
+                      'mg/kg/h',
+                      style: TextStyle(fontSize: 16),
                     ),
                   ),
-                  onPressed: () {
-                    setState(
-                      () {
-                        colorStateButton2 = const Color.fromRGBO(66, 70, 86, 1);
-                        colorStateButton1 =
-                            const Color.fromRGBO(255, 255, 255, 1);
-                        isMgKgHVisible = false;
-                        isMlHVisible = true;
-                      },
-                    );
-                  },
-                  child: const Text(
-                    'ml/h',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-                right: 25,
-                top: 32,
-              ),
-              child: TextField(
-                controller: kilogramController,
-                onChanged: (value) => setState(() => {
-                      kilogramm = value,
-                      //kilogramController.text = value.toString()
-                    }),
-                keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  labelText: 'kg',
-                  errorText: _validate ? 'Bitte gebe einen Wert ein' : null,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-                right: 25,
-                top: 16,
-              ),
-              child: TextField(
-                controller: milligramPerMilliLitersController,
-                onChanged: (value) =>
-                    setState(() => milligramPerMilliLiters = value),
-                keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(
-                  labelText: 'mg/ml',
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-                right: 25,
-                top: 16,
-              ),
-              child: Visibility(
-                visible: isMgKgHVisible,
-                child: TextField(
-                  controller: milliLitersPerHourController,
-                  onChanged: (value) => setState(() => {
-                        milliLitersPerHour = value,
-                        // milliLitersPerHourController.text = value.toString()
-                      }),
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(
-                    labelText: 'ml/h',
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 25,
-                right: 25,
-              ),
-              child: Visibility(
-                visible: isMlHVisible,
-                child: TextField(
-                  controller: milliLitersPerHourController,
-                  onChanged: (value) => setState(() => {
-                        milliLitersPerHour = value,
-                        // milliLitersPerHourController.text = value.toString()
-                      }),
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(
-                    labelText: 'mg/kg/h',
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: const FractionalOffset(0.5, 0.9),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(365, 52),
-                    shape: shape,
-                    primary: const Color.fromRGBO(0, 143, 248, 1),
-                    onPrimary: const Color.fromRGBO(255, 255, 255, 1),
-                  ),
-                  onPressed: () {
-                    getResult();
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ResultView(
-                        result: result,
-                        valueNameOne: valueNameOne,
-                        valueNameTwo: valueNameTwo,
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      primary: colorStateButton1,
+                      backgroundColor: colorStateButton2,
+                      shape: shape,
+                      minimumSize: const Size(160, 40),
+                      side: const BorderSide(
+                        width: 1.5,
+                        color: Color.fromRGBO(66, 70, 86, 1),
                       ),
-                    ));
-                  },
-                  child: const Text(
-                    'Berechnen',
-                    style: TextStyle(fontSize: 18),
-                  ),
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          colorStateButton2 =
+                              const Color.fromRGBO(66, 70, 86, 1);
+                          colorStateButton1 =
+                              const Color.fromRGBO(255, 255, 255, 1);
+                          isMgKgHVisible = false;
+                          isMlHVisible = true;
+                        },
+                      );
+                    },
+                    child: const Text(
+                      'ml/h',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  )
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Column(
+                  children: [
+                    TextField(
+                      controller: kilogramController,
+                      onChanged: (value) => setState(
+                        () => {
+                          kilogramm = value,
+                        },
+                      ),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
+                      decoration: InputDecoration(
+                        labelText: 'kg',
+                        errorText:
+                            _validate ? 'Bitte gebe einen Wert ein' : null,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    TextField(
+                      controller: milligramPerMilliLitersController,
+                      onChanged: (value) =>
+                          setState(() => milligramPerMilliLiters = value),
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.next,
+                      decoration: const InputDecoration(
+                        labelText: 'mg/ml',
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Visibility(
+                      visible: isMgKgHVisible,
+                      child: TextField(
+                        controller: milliLitersPerHourController,
+                        onChanged: (value) => setState(() => {
+                              milliLitersPerHour = value,
+                              // milliLitersPerHourController.text = value.toString()
+                            }),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.done,
+                        decoration: const InputDecoration(
+                          labelText: 'ml/h',
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: isMlHVisible,
+                      child: TextField(
+                        controller: milliLitersPerHourController,
+                        onChanged: (value) => setState(
+                          () => {
+                            milliLitersPerHour = value,
+                          },
+                        ),
+                        keyboardType: TextInputType.number,
+                        textInputAction: TextInputAction.done,
+                        decoration: const InputDecoration(
+                          labelText: 'mg/kg/h',
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            )
-          ],
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 8,
+              right: 8,
+              bottom: 16,
+            ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(365, 52),
+                shape: shape,
+                primary: primaryButtonColor,
+                onPrimary: textWhiteColor,
+              ),
+              onPressed: () {
+                getResult();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ResultView(
+                    result: result,
+                    valueNameOne: valueNameOne,
+                    valueNameTwo: valueNameTwo,
+                  ),
+                ));
+              },
+              child: const Text(
+                'Berechnen',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+          ),
         ),
       ),
     );
