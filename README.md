@@ -6,7 +6,9 @@ Die App ist aktuell leider nur für Android verfügbar, da mich der iOS Store 99
 
 
 <p float="left">
-<img src="https://user-images.githubusercontent.com/16035948/182111892-a6f41a17-25d4-43a6-99b3-f97fa1323a8c.png"  width=30% height=30%>
-<img src="https://user-images.githubusercontent.com/16035948/182111898-bb2c623d-cb69-4de9-8f60-635283ab7d96.png"  width=30% height=30%>
-<img src="https://user-images.githubusercontent.com/16035948/182111900-3837a032-f6e9-4d4f-903c-744fbd888b02.png"  width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/16035948/183242400-01212a00-76e2-4baa-b842-817654db6f8a.jpeg"  width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/16035948/183242401-d68a6174-575e-44e1-a74a-9f4b2aa69667.jpeg"  width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/16035948/183242403-91599f0c-60cb-4105-bca1-236c3bbb2e28.jpeg"  width=30% height=30%>
+ <img src="https://user-images.githubusercontent.com/16035948/183242404-de846cd5-a9ed-430c-80b3-9654439452c6.jpeg"  width=30% height=30%>
 </p>
+
