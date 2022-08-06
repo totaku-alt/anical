@@ -14,6 +14,8 @@ Aktuell wird AniCal durch Ärzte getestet und weiter verbessert, bzw. erweitert.
 </p>
 </center>
 
+Aktuell wird AniCal durch Ärzte getestet und weiter verbessert, bzw. erweitert.
+<br>
 Letzte Verbeserungen(noch nicht live):
 
 - UI verbesserungen
