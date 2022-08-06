@@ -3,7 +3,7 @@
 Ein kleiner Rechner für Ärzte und Pflegekräfte zur Umrechnung von Perfusoren-Zeiten. Die App in Version 1.0 kann hier im Store heruntergeladen werden: [AniCal](https://play.google.com/store/apps/details?id=design.totaku.anicalrechner)
 
 Die App ist aktuell leider nur für Android verfügbar, da mich der iOS Store 99$ kostet :)
-Aktuell wird AniCal durch Ärzte getestet und weiter verbessert, bzw. erweitert.
+
 
 <center>
 <p float="left">
