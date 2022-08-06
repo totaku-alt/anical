@@ -6,9 +6,9 @@ Die App ist aktuell leider nur für Android verfügbar, da mich der iOS Store 99
 
 
 <p float="left">
-<img src="https://user-images.githubusercontent.com/16035948/183242400-01212a00-76e2-4baa-b842-817654db6f8a.jpeg"  width=25% height=25%>
-<img src="https://user-images.githubusercontent.com/16035948/183242401-d68a6174-575e-44e1-a74a-9f4b2aa69667.jpeg"  width=25% height=25%>
-<img src="https://user-images.githubusercontent.com/16035948/183242403-91599f0c-60cb-4105-bca1-236c3bbb2e28.jpeg"  width=25% height=25%>
- <img src="https://user-images.githubusercontent.com/16035948/183242404-de846cd5-a9ed-430c-80b3-9654439452c6.jpeg"  width=25% height=25%>
+<img src="https://user-images.githubusercontent.com/16035948/183242400-01212a00-76e2-4baa-b842-817654db6f8a.jpeg"  width=20% height=20%>
+<img src="https://user-images.githubusercontent.com/16035948/183242401-d68a6174-575e-44e1-a74a-9f4b2aa69667.jpeg"  width=20% height=20%>
+<img src="https://user-images.githubusercontent.com/16035948/183242403-91599f0c-60cb-4105-bca1-236c3bbb2e28.jpeg"  width=20% height=20%>
+<img src="https://user-images.githubusercontent.com/16035948/183242404-de846cd5-a9ed-430c-80b3-9654439452c6.jpeg"  width=20% height=20%>
 </p>
 
