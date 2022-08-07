@@ -1,7 +1,9 @@
 import 'package:anical/constants/colors.dart';
+import 'package:anical/constants/title_subtitle.dart';
 import 'package:anical/views/mikrogramm_view.dart';
 import 'package:anical/views/milligramm_view.dart';
 import 'package:flutter/material.dart';
+import 'package:open_mail_app/open_mail_app.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,33 +23,8 @@ class _HomePage extends State<HomePage> {
           const SizedBox(
             height: 80,
           ),
-          const Padding(
-            padding: EdgeInsets.only(
-              left: 30,
-              top: 5,
-            ),
-            child: Text(
-              'AniCal',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: textPrimaryColor,
-              ),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(
-              left: 33,
-              top: 10,
-            ),
-            child: Text(
-              'Anästhesie Perfusorenrechner',
-              style: TextStyle(
-                fontSize: 22,
-                color: textPrimaryColor,
-              ),
-            ),
-          ),
+          titles('AniCal'),
+          subtitle('Anästhesie Perfusorenrechner'),
           const SizedBox(
             height: 80,
           ),
@@ -62,7 +39,7 @@ class _HomePage extends State<HomePage> {
               },
               style: ElevatedButton.styleFrom(
                 splashFactory: NoSplash.splashFactory,
-                primary: primaryButtonColor,
+                primary: buttonPrimaryColor,
                 minimumSize: const Size(120, 120),
                 shape: const CircleBorder(),
                 elevation: 2.5,
@@ -90,7 +67,7 @@ class _HomePage extends State<HomePage> {
                 },
                 style: ElevatedButton.styleFrom(
                     splashFactory: NoSplash.splashFactory,
-                    primary: primaryButtonColor, // 255, 56, 101, 166
+                    primary: buttonPrimaryColor, // 255, 56, 101, 166
                     minimumSize: const Size(120, 120),
                     shape: const CircleBorder(),
                     elevation: 2.5,
@@ -104,9 +81,61 @@ class _HomePage extends State<HomePage> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white10,
+        elevation: 0.0,
+        child: TextButton.icon(
+          onPressed: sendMail,
+          icon: const Icon(Icons.feedback_outlined),
+          label: const Text('Feedback'),
+        ),
+      ),
+    );
+  }
+
+  void sendMail() async {
+    EmailContent email = EmailContent(
+      to: [
+        'totakudesign@gmail.com',
+      ],
+      subject: 'Hey, ich hab Feedback zu AniCal',
+    );
+
+    OpenMailAppResult result = await OpenMailApp.composeNewEmailInMailApp(
+        nativePickerTitle: 'Select email app to compose', emailContent: email);
+    if (!result.didOpen && !result.canOpen) {
+      showNoMailAppsDialog(context);
+    } else if (!result.didOpen && result.canOpen) {
+      showDialog(
+        context: context,
+        builder: (_) => MailAppPickerDialog(
+          mailApps: result.options,
+          emailContent: email,
+        ),
+      );
+    }
+  }
+
+  void showNoMailAppsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Open Mail App"),
+          content: const Text("No mail apps installed"),
+          actions: <Widget>[
+            TextButton(
+              child: const Text("OK"),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          ],
+        );
+      },
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:anical/constants/colors.dart';
 import 'package:anical/views/start_view.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class _ResultViewState extends State<ResultView> {
           icon: const Icon(
             Icons.arrow_back,
             size: 30,
-            color: Color.fromRGBO(66, 70, 86, 1),
+            color: textPrimaryColor,
           ),
         ),
         backgroundColor: Colors.transparent,
@@ -80,14 +81,14 @@ class _ResultViewState extends State<ResultView> {
                           style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 80,
-                            color: Color.fromARGB(255, 47, 193, 147),
+                            color: textKeyColor,
                           ),
                           '${widget.result.toStringAsFixed(2)}'),
                     ),
                     Text(
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Color.fromRGBO(66, 70, 86, 1),
+                          color: textPrimaryColor,
                         ),
                         widget.valueNameOne),
                     const SizedBox(
@@ -102,7 +103,7 @@ class _ResultViewState extends State<ResultView> {
                     Text(
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Color.fromRGBO(66, 70, 86, 1),
+                          color: textPrimaryColor,
                         ),
                         widget.valueNameTwo),
                   ],
@@ -110,31 +111,38 @@ class _ResultViewState extends State<ResultView> {
               ),
             ),
           ),
-          Expanded(
-            child: Align(
-              alignment: const FractionalOffset(0.5, 0.93),
-              child: ElevatedButton.icon(
-                icon: const Icon(
-                  Icons.replay,
-                  color: Colors.white,
-                ),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(365, 52),
-                  shape: shape,
-                  primary: const Color.fromRGBO(0, 143, 248, 1),
-                  onPrimary: const Color.fromRGBO(255, 255, 255, 1),
-                ),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const HomePage()));
-                },
-                label: Text(
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                    'Neue Rechnung'),
-              ),
-            ),
-          ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white10,
+        elevation: 0.0,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 8,
+            right: 8,
+            bottom: 16,
+          ),
+          child: ElevatedButton.icon(
+            icon: const Icon(
+              Icons.replay,
+              color: Colors.white,
+            ),
+            style: ElevatedButton.styleFrom(
+              splashFactory: NoSplash.splashFactory,
+              minimumSize: const Size(365, 52),
+              shape: shape,
+              primary: buttonPrimaryColor,
+              onPrimary: textWhiteColor,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+            },
+            label: Text(
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                'Neue Rechnung'),
+          ),
+        ),
       ),
     );
   }

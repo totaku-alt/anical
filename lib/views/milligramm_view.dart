@@ -2,6 +2,7 @@ import 'package:anical/constants/colors.dart';
 import 'package:anical/views/result_view.dart';
 import 'package:anical/views/start_view.dart';
 import 'package:flutter/material.dart';
+import 'package:anical/constants/title_subtitle.dart';
 
 class MilligrammView extends StatefulWidget {
   const MilligrammView({
@@ -78,26 +79,8 @@ class _MilligrammViewState extends State<MilligrammView> {
               const SizedBox(
                 height: 105,
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 30),
-                child: Text(
-                  'AniCal',
-                  style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: textPrimaryColor),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  left: 31,
-                  top: 10,
-                ),
-                child: Text(
-                  'Berechne die Laufzeit in\nmg/kg/h, oder ml/h.',
-                  style: TextStyle(fontSize: 22, color: textPrimaryColor),
-                ),
-              ),
+              titles('AniCal'),
+              subtitle('Berechne die Laufzeit in\nmg/kg/h, oder ml/h.'),
               const SizedBox(
                 height: 25,
               ),
@@ -110,8 +93,10 @@ class _MilligrammViewState extends State<MilligrammView> {
                       backgroundColor: colorStateButton1,
                       shape: shape,
                       minimumSize: const Size(160, 40),
-                      side:
-                          const BorderSide(width: 1.5, color: textPrimaryColor),
+                      side: const BorderSide(
+                        width: 1.5,
+                        color: textPrimaryColor,
+                      ),
                     ),
                     onPressed: () {
                       setState(
@@ -160,6 +145,9 @@ class _MilligrammViewState extends State<MilligrammView> {
                   )
                 ],
               ),
+              const SizedBox(
+                height: 8,
+              ),
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Column(
@@ -180,7 +168,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                       ),
                     ),
                     const SizedBox(
-                      height: 8,
+                      height: 16,
                     ),
                     TextField(
                       controller: milligramPerMilliLitersController,
@@ -193,7 +181,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                       ),
                     ),
                     const SizedBox(
-                      height: 8,
+                      height: 16,
                     ),
                     Visibility(
                       visible: isMgKgHVisible,
@@ -233,6 +221,7 @@ class _MilligrammViewState extends State<MilligrammView> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
+          color: Colors.white10,
           elevation: 0.0,
           child: Padding(
             padding: const EdgeInsets.only(
@@ -245,7 +234,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                 splashFactory: NoSplash.splashFactory,
                 minimumSize: const Size(365, 52),
                 shape: shape,
-                primary: primaryButtonColor,
+                primary: buttonPrimaryColor,
                 onPrimary: textWhiteColor,
               ),
               onPressed: () {
