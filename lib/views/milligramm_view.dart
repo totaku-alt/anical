@@ -41,7 +41,7 @@ class _MilligrammViewState extends State<MilligrammView> {
   final String valueNameMgMin = 'mg/kg/min';
 
   final String valueNameMilligrammMlHour = 'ml/h';
-  final String valueNameMilligrammMlMin = 'ml/h';
+  final String valueNameMilligrammMlMin = 'ml/min';
 
   @override
   void initState() {
