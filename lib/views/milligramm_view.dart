@@ -37,8 +37,11 @@ class _MilligrammViewState extends State<MilligrammView> {
   double milligramPerMilliLitersAsInt = 0;
   double milliLitersPerHourAsInt = 0;
   late double result;
-  final String valueNameOne = 'mg/kg/h';
-  final String valueNameTwo = 'mg/kg/min';
+  final String valueNameMgHour = 'mg/kg/h';
+  final String valueNameMgMin = 'mg/kg/min';
+
+  final String valueNameMilligrammMlHour = 'ml/h';
+  final String valueNameMilligrammMlMin = 'ml/h';
 
   @override
   void initState() {
@@ -242,8 +245,12 @@ class _MilligrammViewState extends State<MilligrammView> {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => ResultView(
                     result: result,
-                    valueNameOne: valueNameOne,
-                    valueNameTwo: valueNameTwo,
+                    valueNameOne: isMlHVisible
+                        ? valueNameMilligrammMlHour
+                        : valueNameMgHour,
+                    valueNameTwo: isMlHVisible
+                        ? valueNameMilligrammMlMin
+                        : valueNameMgMin,
                   ),
                 ));
               },

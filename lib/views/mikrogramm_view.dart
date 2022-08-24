@@ -36,8 +36,11 @@ class _MikrogrammViewState extends State<MikrogrammView> {
   double milliLitersPerHourAsInt = 0;
 
   late double result;
-  final String valueNameOne = 'µg/kg/h';
-  final String valueNameTwo = 'µg/kg/min';
+  final String valueNameMikrogrammHour = 'µg/kg/h';
+  final String valueNameMikrogrammMin = 'µg/kg/min';
+
+  final String valueNameMikrogrammMlHour = 'ml/h';
+  final String valueNameMikrogrammMlMin = 'ml/min';
 
   @override
   void initState() {
@@ -234,8 +237,12 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => ResultView(
                       result: result,
-                      valueNameOne: valueNameOne,
-                      valueNameTwo: valueNameTwo,
+                      valueNameOne: isMlHVisible
+                          ? valueNameMikrogrammMlHour
+                          : valueNameMikrogrammHour,
+                      valueNameTwo: isMlHVisible
+                          ? valueNameMikrogrammMlMin
+                          : valueNameMikrogrammMin,
                     ),
                   ));
                 },
