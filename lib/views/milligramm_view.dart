@@ -92,8 +92,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                 children: [
                   OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      primary: colorStateButton2,
-                      backgroundColor: colorStateButton1,
+                      foregroundColor: colorStateButton2, backgroundColor: colorStateButton1,
                       shape: shape,
                       minimumSize: const Size(160, 40),
                       side: const BorderSide(
@@ -120,8 +119,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                   ),
                   OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      primary: colorStateButton1,
-                      backgroundColor: colorStateButton2,
+                      foregroundColor: colorStateButton1, backgroundColor: colorStateButton2,
                       shape: shape,
                       minimumSize: const Size(160, 40),
                       side: const BorderSide(
@@ -190,10 +188,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                       visible: isMgKgHVisible,
                       child: TextField(
                         controller: milliLitersPerHourController,
-                        onChanged: (value) => setState(() => {
-                              milliLitersPerHour = value,
-                              // milliLitersPerHourController.text = value.toString()
-                            }),
+                        onChanged: (value) => setState(() => milliLitersPerHour = value,),
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.done,
                         decoration: const InputDecoration(
@@ -206,10 +201,7 @@ class _MilligrammViewState extends State<MilligrammView> {
                       child: TextField(
                         controller: milliLitersPerHourController,
                         onChanged: (value) => setState(
-                          () => {
-                            milliLitersPerHour = value,
-                          },
-                        ),
+                          () => milliLitersPerHour = value,),
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.done,
                         decoration: const InputDecoration(
@@ -234,11 +226,9 @@ class _MilligrammViewState extends State<MilligrammView> {
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                splashFactory: NoSplash.splashFactory,
+                foregroundColor: textWhiteColor, backgroundColor: buttonPrimaryColor, splashFactory: NoSplash.splashFactory,
                 minimumSize: const Size(365, 52),
                 shape: shape,
-                primary: buttonPrimaryColor,
-                onPrimary: textWhiteColor,
               ),
               onPressed: () {
                 getResult();

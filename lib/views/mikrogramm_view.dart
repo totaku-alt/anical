@@ -91,8 +91,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                   children: [
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        primary: colorStateButton2,
-                        backgroundColor: colorStateButton1,
+                        foregroundColor: colorStateButton2, backgroundColor: colorStateButton1,
                         shape: shape,
                         minimumSize: const Size(160, 40),
                         side: const BorderSide(
@@ -117,8 +116,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                     ),
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        primary: colorStateButton1,
-                        backgroundColor: colorStateButton2,
+                        foregroundColor: colorStateButton1, backgroundColor: colorStateButton2,
                         shape: shape,
                         minimumSize: const Size(160, 40),
                         side: const BorderSide(
@@ -154,10 +152,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                     children: [
                       TextField(
                         controller: kilogramController,
-                        onChanged: (value) => setState(() => {
-                              kilogramm = value,
-                              //kilogramController.text = value.toString()
-                            }),
+                        onChanged: (value) => setState(() => kilogramm = value,),
                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.next,
                         decoration: const InputDecoration(
@@ -184,10 +179,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                         visible: isMicrogramKgHVisible,
                         child: TextField(
                           controller: milliLitersPerHourController,
-                          onChanged: (value) => setState(() => {
-                                milliLitersPerHour = value,
-                                // milliLitersPerHourController.text = value.toString()
-                              }),
+                          onChanged: (value) => setState(() => milliLitersPerHour = value,),
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.done,
                           decoration: const InputDecoration(
@@ -199,10 +191,7 @@ class _MikrogrammViewState extends State<MikrogrammView> {
                         visible: isMlHVisible,
                         child: TextField(
                           controller: milliLitersPerHourController,
-                          onChanged: (value) => setState(() => {
-                                milliLitersPerHour = value,
-                                // milliLitersPerHourController.text = value.toString()
-                              }),
+                          onChanged: (value) => setState(() => milliLitersPerHour = value,),
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.done,
                           decoration: const InputDecoration(
@@ -227,11 +216,9 @@ class _MikrogrammViewState extends State<MikrogrammView> {
               ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    splashFactory: NoSplash.splashFactory,
+                    foregroundColor: textWhiteColor, backgroundColor: buttonPrimaryColor, splashFactory: NoSplash.splashFactory,
                     minimumSize: const Size(365, 52),
-                    shape: shape,
-                    primary: buttonPrimaryColor,
-                    onPrimary: textWhiteColor),
+                    shape: shape),
                 onPressed: () {
                   getResult();
                   Navigator.of(context).push(MaterialPageRoute(

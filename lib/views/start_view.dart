@@ -4,15 +4,53 @@ import 'package:anical/views/mikrogramm_view.dart';
 import 'package:anical/views/milligramm_view.dart';
 import 'package:flutter/material.dart';
 import 'package:open_mail_app/open_mail_app.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+  final keyIsFirstLoaded = 'is_first_loaded';
 
   @override
   State<HomePage> createState() => _HomePage();
 }
 
 class _HomePage extends State<HomePage> {
+  final keyIsFirstLoaded = 'is_first_loaded';
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      feedbackDialog();
+    });
+  }
+
+  Future<dynamic> feedbackDialog() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? isFirstLoaded = prefs.getBool(keyIsFirstLoaded);
+    if (isFirstLoaded == null) {
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          title: const Text('Feedback'),
+          content: const Text(
+            'Wenn Du Ideen zur Verbesserung, oder Funktionserweiterung der App hast, melde Dich gern unter totakudesign@gmail.com!',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                //if (!mounted) return;
+                Navigator.of(context).pop();
+                prefs.setBool(keyIsFirstLoaded, false);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +77,7 @@ class _HomePage extends State<HomePage> {
               },
               style: ElevatedButton.styleFrom(
                 splashFactory: NoSplash.splashFactory,
-                primary: buttonPrimaryColor,
+                backgroundColor: buttonPrimaryColor,
                 minimumSize: const Size(120, 120),
                 shape: const CircleBorder(),
                 elevation: 2.5,
@@ -67,7 +105,7 @@ class _HomePage extends State<HomePage> {
                 },
                 style: ElevatedButton.styleFrom(
                     splashFactory: NoSplash.splashFactory,
-                    primary: buttonPrimaryColor, // 255, 56, 101, 166
+                    backgroundColor: buttonPrimaryColor, // 255, 56, 101, 166
                     minimumSize: const Size(120, 120),
                     shape: const CircleBorder(),
                     elevation: 2.5,

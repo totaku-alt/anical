@@ -128,17 +128,15 @@ class _ResultViewState extends State<ResultView> {
               color: Colors.white,
             ),
             style: ElevatedButton.styleFrom(
-              splashFactory: NoSplash.splashFactory,
+              foregroundColor: textWhiteColor, backgroundColor: buttonPrimaryColor, splashFactory: NoSplash.splashFactory,
               minimumSize: const Size(365, 52),
               shape: shape,
-              primary: buttonPrimaryColor,
-              onPrimary: textWhiteColor,
             ),
             onPressed: () {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const HomePage()));
             },
-            label: Text(
+            label: const Text(
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 'Neue Rechnung'),
           ),
